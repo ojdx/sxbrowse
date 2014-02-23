@@ -1,0 +1,43 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body ng-app="sxBrowse">
+<div class="container" ng-controller="AppCtrl as main">
+    <div class="header">
+        <h3 class="text-muted">sxbrowse</h3>
+    </div>
+
+    <div>
+        <form>
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" ng-model="input.search">
+                <span class="glyphicon glyphicon-search input-group-addon " style="top: 0px;"></span>
+            </div>
+        </form>
+    </div>
+    <div>
+        {{main.something}}
+    </div>
+    <div ng-repeat="events in main.Results|filter:input.search">
+        <div class="row">
+            <span class="col-md-6">{{events.name}}</span>
+            <span class="col--offset-md-4 col-md-2">{{events.type}}</span>
+        </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="app.js"></script>
+</body>
+</html>
