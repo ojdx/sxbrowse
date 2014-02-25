@@ -1,12 +1,16 @@
 var sxBrowse = angular.module("sxBrowse", []);
-sxBrowse.value("apiKey", 'your key here');
+sxBrowse.value("apiKey", 'YOUR KEY HERE');
+sxBrowse.config(['$httpProvider',function ($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}])
 sxBrowse.controller("AppCtrl", function ($http, apiKey) {
     var main = this;
     console.log('in ap ctrl');
 
     main.Results;
-    main.something = 'something else';
-    $http.get('//apiby.io/api/events?apiKey=' + apiKey).
+    main.something = 'Results';
+    $http.get('http://apiby.io/api/events?apiKey=' + apiKey).
 
         success(function(data, status, headers, config) {
             // this callback will be called asynchronously
